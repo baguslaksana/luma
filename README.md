@@ -2,6 +2,8 @@
 
 Aplikasi mobile pembelajaran online berbasis **Flutter & Dart** dengan fitur Role-Based (Siswa & Pengajar), dirancang sesuai spesifikasi **Technical Assessment: Simple E-Learning Platform (Track B)**.
 
+* **Repository:** https://github.com/baguslaksana/luma
+
 > **Catatan:** Seluruh aplikasi ini — mulai dari desain UI/UX, arsitektur kode, implementasi fitur, hingga dokumentasi — dibuat sepenuhnya menggunakan bantuan **AI (Artificial Intelligence)**.
 
 ---
@@ -86,6 +88,8 @@ Tersedia juga fitur **Sign Up** untuk membuat akun baru.
 
 ### Langkah Menjalankan
 ```bash
+git clone https://github.com/baguslaksana/luma.git
+cd luma
 flutter pub get
 flutter test
 flutter run
