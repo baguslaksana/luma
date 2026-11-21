@@ -45,48 +45,19 @@ Aplikasi mobile pembelajaran online berbasis **Flutter & Dart** dengan fitur Rol
 
 ---
 
-## 3. System Design, ERD, Flowchart & Model Data (Section 4)
+## 3. Cara Menjalankan Aplikasi
 
-Seluruh diagram visual tersedia di direktori [`docs/diagrams/`](docs/diagrams/).
-
-### A. System Design — Komponen Utama & Alur Data
-![System Design](docs/diagrams/system_design.png)
-
-### B. Flowchart — Alur Siswa & Alur Guru
-![Flowchart](docs/diagrams/flowchart_diagram.png)
-
-### C. ERD — Entity-Relationship Diagram (PostgreSQL)
-![ERD](docs/diagrams/erd_diagram.png)
-
-### D. Rancangan Model Data & Kontrak API / Mock Data
-![API & Data Model](docs/diagrams/api_data_model.png)
-
-### Panduan Migrasi ke REST API Nyata
-Pada `lib/core/di/service_locator.dart`, cukup ganti satu baris data source:
-```dart
-// Dari:
-courseRemoteDataSource = PostgresCourseDataSource();
-// Menjadi:
-courseRemoteDataSource = CourseApiDataSource(http.Client());
-```
-Seluruh Domain Layer dan UI Layer akan langsung bekerja tanpa perubahan.
+### Opsi A — Install Langsung via File APK
+[Unduh file APK aplikasi Luma](https://github.com/baguslaksana/luma/releases)
 
 ---
 
-## 4. Cara Menjalankan Aplikasi
+### Opsi B — Menjalankan dari Source Code
 
-### Prasyarat
+#### Prasyarat
 - Flutter SDK `>=3.3.0` · Android Studio / VS Code · Emulator atau perangkat fisik
 
-### Akun Demo
-| Role | Email | Password | Nama |
-|---|---|---|---|
-| **Siswa** | `siswa@luma.com` | `siswa` | ARI BAGUS |
-| **Pengajar** | `pengajar@luma.com` | `pengajar` | Drs. Bambang Sudarsono, M.Pd. |
-
-Tersedia juga fitur **Sign Up** untuk membuat akun baru.
-
-### Langkah Menjalankan
+#### Langkah Menjalankan
 ```bash
 git clone https://github.com/baguslaksana/luma.git
 cd luma
@@ -94,6 +65,21 @@ flutter pub get
 flutter test
 flutter run
 ```
+
+#### Build File APK Sendiri
+Untuk menghasilkan file installer APK secara mandiri:
+```bash
+flutter build apk --release
+# File APK akan berada di: build/app/outputs/flutter-apk/app-release.apk
+```
+
+### Akun Demo & Pendaftaran
+| Role | Email | Password | Nama |
+|---|---|---|---|
+| **Siswa** | `siswa@luma.com` | `siswa` | ARI BAGUS |
+| **Pengajar** | `pengajar@luma.com` | `pengajar` | Drs. Bambang Sudarsono, M.Pd. |
+
+*Tersedia juga tombol **Sign Up** untuk mencoba mendaftar akun baru langsung dari aplikasi.*
 
 ### Database PostgreSQL (Opsional)
 Aplikasi memiliki in-memory fallback. Untuk menjalankan PostgreSQL lokal:
@@ -104,7 +90,7 @@ psql -h localhost -U luma_user -d luma_elearning -f database/schema.sql
 
 ---
 
-## 5. Catatan Keterbatasan (Limitations)
+## 4. Catatan Keterbatasan (Limitations)
 
 1. **Offline Download:** Fokus pada progressive streaming + local fallback asset. Fitur download ke storage lokal dapat ditambahkan via `flutter_downloader`.
 2. **Koneksi Jaringan:** Video online membutuhkan internet aktif. Jika terputus, otomatis beralih ke video lokal bawaan.
