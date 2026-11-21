@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: luma_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: luma_elearning
+      POSTGRES_USER: luma_user
+      POSTGRES_PASSWORD: luma_password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U luma_user -d luma_elearning"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

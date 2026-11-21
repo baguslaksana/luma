@@ -1,0 +1,155 @@
+import '../models/category_model.dart';
+import '../models/course_model.dart';
+import '../models/instructor_model.dart';
+import '../models/lesson_model.dart';
+
+class DummyCourseSeed {
+  DummyCourseSeed._();
+
+  static const InstructorModel teacherBambang = InstructorModel(
+    id: 'a1111111-1111-1111-1111-111111111111',
+    name: 'Drs. Bambang Sudarsono, M.Pd.',
+    role: 'Senior High School Mathematics Teacher',
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+    bio: 'Senior teacher with 15+ years experience in high school curriculum and exam preparation.',
+  );
+
+  static List<CourseModel> get initialCourses => [
+    CourseModel(
+      id: 'course-matematika-sma',
+      title: 'High School Calculus & Trigonometry',
+      category: const CategoryModel(id: 'cat-matematika', name: 'Mathematics', slug: 'matematika'),
+      instructor: teacherBambang,
+      description: 'Master algebraic limits, chain rule differential derivatives, and tangent lines with visual explanations from 3Blue1Brown and Khan Academy.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80',
+      rating: 4.9,
+      totalReviews: 1240,
+      totalDurationSeconds: 1575,
+      level: 'Grades 11 - 12',
+      lessons: [
+        const LessonModel(
+          id: 'ls-mat-01',
+          courseId: 'course-matematika-sma',
+          title: 'Calculus 1: Introduction to Limits',
+          description: 'Understanding function approaches, eliminating 0/0 indeterminate forms, and basic limit laws.',
+          durationSeconds: 630,
+          videoUrl: 'https://www.youtube.com/watch?v=YNstP0ESndU',
+          order: 1,
+          isPreview: true,
+        ),
+        const LessonModel(
+          id: 'ls-mat-02',
+          courseId: 'course-matematika-sma',
+          title: 'Essence of Calculus: The Derivative Paradox',
+          description: 'Visualizing instantaneous rate of change, curve tangents, and derivatives by 3Blue1Brown.',
+          durationSeconds: 945,
+          videoUrl: 'https://www.youtube.com/watch?v=9vKqVkMQHKk',
+          order: 2,
+          isPreview: false,
+        ),
+      ],
+    ),
+    CourseModel(
+      id: 'course-fisika-sma',
+      title: 'Physics Mechanics: Newton\'s Laws & Work-Energy',
+      category: const CategoryModel(id: 'cat-fisika', name: 'Physics', slug: 'fisika'),
+      instructor: teacherBambang,
+      description: 'Study particle motion dynamics, free-body force diagram analysis on inclined planes, and mechanical energy conservation with Crash Course Physics.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80',
+      rating: 4.8,
+      totalReviews: 980,
+      totalDurationSeconds: 1590,
+      level: 'Grades 10 - 11',
+      lessons: [
+        const LessonModel(
+          id: 'ls-fis-01',
+          courseId: 'course-fisika-sma',
+          title: 'Newton\'s Laws of Motion: Crash Course Physics',
+          description: 'Analyzing inertia, F = ma, action-reaction forces, and free-body diagrams on inclined planes.',
+          durationSeconds: 740,
+          videoUrl: 'https://www.youtube.com/watch?v=kKKM8Y-u7ds',
+          order: 1,
+          isPreview: true,
+        ),
+        const LessonModel(
+          id: 'ls-fis-02',
+          courseId: 'course-fisika-sma',
+          title: 'Work, Energy, & Power: Crash Course Physics',
+          description: 'Understanding kinetic and potential energy, the work-energy theorem, and mechanical conservation.',
+          durationSeconds: 850,
+          videoUrl: 'https://www.youtube.com/watch?v=w4QFJb9a8vo',
+          order: 2,
+          isPreview: false,
+        ),
+      ],
+    ),
+    CourseModel(
+      id: 'course-biologi-sma',
+      title: 'Genetics & Cell Biology: DNA to Protein Synthesis',
+      category: const CategoryModel(id: 'cat-biologi', name: 'Biology', slug: 'biologi'),
+      instructor: teacherBambang,
+      description: 'Deep dive into Mendelian genetics, double-helix DNA replication, transcription, and translation with 3D animation.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80',
+      rating: 4.8,
+      totalReviews: 760,
+      totalDurationSeconds: 1495,
+      level: 'Grade 12',
+      lessons: [
+        const LessonModel(
+          id: 'ls-bio-01',
+          courseId: 'course-biologi-sma',
+          title: 'DNA Structure & Replication: Crash Course Biology',
+          description: 'Double helix structure, nucleotide bases, hydrogen bonding, and DNA helicase enzyme replication.',
+          durationSeconds: 675,
+          videoUrl: 'https://www.youtube.com/watch?v=8kK2zwjRV0M',
+          order: 1,
+          isPreview: true,
+        ),
+        const LessonModel(
+          id: 'ls-bio-02',
+          courseId: 'course-biologi-sma',
+          title: 'From DNA to Protein: 3D Molecular Animation',
+          description: 'Detailed 3D visualization of transcription inside the nucleus and translation at the ribosome.',
+          durationSeconds: 820,
+          videoUrl: 'https://www.youtube.com/watch?v=gG7uCskUOrA',
+          order: 2,
+          isPreview: false,
+        ),
+      ],
+    ),
+    CourseModel(
+      id: 'course-utbk-mastery',
+      title: 'College Exam Prep: Quantitative Reasoning Mastery',
+      category: const CategoryModel(id: 'cat-utbk', name: 'College Prep', slug: 'utbk'),
+      instructor: teacherBambang,
+      description: 'Speed strategies for General Reasoning, Quantitative Knowledge, and Reading Comprehension.',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+      rating: 4.95,
+      totalReviews: 2150,
+      totalDurationSeconds: 1820,
+      level: 'Grade 12 & Gap Year',
+      lessons: [
+        const LessonModel(
+          id: 'ls-utbk-01',
+          courseId: 'course-utbk-mastery',
+          title: 'Integration & Fundamental Theorem of Calculus',
+          description: 'Connecting areas under curves to anti-derivatives and high-yield math exam problem solving.',
+          durationSeconds: 920,
+          videoUrl: 'https://www.youtube.com/watch?v=rfG8ce4nNh0',
+          order: 1,
+          isPreview: true,
+        ),
+        const LessonModel(
+          id: 'ls-utbk-02',
+          courseId: 'course-utbk-mastery',
+          title: 'Neural Networks & Mathematical Logic by 3Blue1Brown',
+          description: 'Logical reasoning, weight parameters, matrix operations, and abstract thinking for college prep.',
+          durationSeconds: 900,
+          videoUrl: 'https://www.youtube.com/watch?v=aircAruvnKk',
+          order: 2,
+          isPreview: false,
+        ),
+      ],
+    ),
+  ];
+}
